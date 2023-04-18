@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Login from './Login';
 import SignUp from './SignUp';
 import '../styles/Account.css';
@@ -10,17 +10,34 @@ import {
 import logo from '../images/tasks-logo.png'
 
 const Account = () => {
+    const [message, setMessage] = useState([''])
+
+    const updateMessage = msg => {
+        setMessage(msg)
+    }
+
+    const handleSubmit = async e => {
+        e.preventDefault()
+        try {
+            // submission logic here
+        } catch (err) {
+            updateMessage(err.message)
+            console.err(message)
+        }
+    }
     return (
         <section className='container'>
             <Router>
-                {/* logo here */}
                 <div className='logo-container'>
                     <img className='logo' src={logo} alt="tasks" />
                 </div>
 
                 <Routes>
                     <Route path='/login' element={<Login />}/>
-                    <Route path='/signup' element={<SignUp />}/>
+                    <Route 
+                        path='/signup' 
+                        element={<SignUp handleSubmit={handleSubmit}/>}
+                    />
                 </Routes>
             </Router>
         </section>

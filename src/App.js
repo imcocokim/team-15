@@ -9,12 +9,12 @@ function App() {
   return (
     <main className="App">
       {/* to check if the user is logged in */}
-      {!isLoggedIn ?
+      {isLoggedIn ?
         <Account />
       :
       // main app
         <section>
-          
+
         </section>
       }
     </main>
