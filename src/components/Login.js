@@ -8,7 +8,6 @@ import {
 const Login = () => {
     return (
         <form>
-            Login
         </form>
     )
 }

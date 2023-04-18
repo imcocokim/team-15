@@ -4,20 +4,24 @@ import SignUp from './SignUp';
 import '../styles/Account.css';
 import {
     BrowserRouter as Router,
-    Switch,
+    Routes,
     Route
 } from "react-router-dom";
+import logo from '../images/tasks-logo.png'
 
 const Account = () => {
     return (
-        <section>
+        <section className='container'>
             <Router>
                 {/* logo here */}
+                <div className='logo-container'>
+                    <img className='logo' src={logo} alt="tasks" />
+                </div>
 
-                <Switch>
+                <Routes>
                     <Route path='/login' element={<Login />}/>
                     <Route path='/signup' element={<SignUp />}/>
-                </Switch>
+                </Routes>
             </Router>
         </section>
     )

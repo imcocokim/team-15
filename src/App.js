@@ -1,6 +1,8 @@
-import './App.css';
+// import './App.css';
 import React, { useState } from 'react';
 import Account from './components/Account';
+import Login from './components/Login';
+import SignUp from './components/SignUp';
 
 function App() {
   const [isLoggedIn,setIsLoggedIn] = useState(true);
