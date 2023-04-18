@@ -36,7 +36,7 @@ const Account = () => {
                     <Route path='/login' element={<Login />}/>
                     <Route 
                         path='/signup' 
-                        element={<SignUp handleSubmit={handleSubmit}/>}
+                        element={<SignUp handleSubmit={handleSubmit} updateMessage={updateMessage}/>}
                     />
                 </Routes>
             </Router>
