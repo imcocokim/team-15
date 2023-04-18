@@ -1,14 +1,45 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     Link
 } from "react-router-dom";
 //use this link to go to the signUp page 'signup'
 
 
-const Login = () => {
+const Login = (props) => {
+    const [message, setMessage] = useState('')
+
+    const updateMessage = msg => {
+        setMessage(msg)
+    }
+
+    const [formData, setFormData] = useState({
+        email: '',
+        password: ''
+    })
+
+    const handleSubmit = async e => {
+        e.preventDefault()
+        try {
+            // submission logic here
+            // authservice...
+        } catch (err) {
+            updateMessage(err.message)
+        }
+    }
+
+    const handleChange = e => {
+        updateMessage('')
+        setFormData({
+            ...formData, 
+            [e.target.name]: e.target.value,
+        })
+    }
+
+
     return (
         <form 
             autoComplete='off'
+            onSubmit={handleSubmit}
             className='signupContainer'
         >
             <div>
@@ -22,8 +53,8 @@ const Login = () => {
                         id='email'
                         name='email'
                         placeholder='name@example.com'
-                        // value={email}
-                        // onChange={handChange}
+                        value={formData.email}
+                        onChange={handleChange}
                     />
                 </div>
             </div>
@@ -38,8 +69,8 @@ const Login = () => {
                         id='password'
                         name='password'
                         placeholder='****************'
-                        // value={password}
-                        //onChange={handleChange}
+                        value={formData.password}
+                        onChange={handleChange}
                     />
                 </div>
             </div>

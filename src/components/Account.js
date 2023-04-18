@@ -10,21 +10,6 @@ import {
 import logo from '../images/tasks-logo.png'
 
 const Account = () => {
-    const [message, setMessage] = useState([''])
-
-    const updateMessage = msg => {
-        setMessage(msg)
-    }
-
-    const handleSubmit = async e => {
-        e.preventDefault()
-        try {
-            // submission logic here
-        } catch (err) {
-            updateMessage(err.message)
-            console.err(message)
-        }
-    }
     return (
         <section className='container'>
             <Router>
@@ -33,10 +18,12 @@ const Account = () => {
                 </div>
 
                 <Routes>
-                    <Route path='/login' element={<Login />}/>
+                    <Route 
+                    path='/login' 
+                    element={<Login />}/>
                     <Route 
                         path='/signup' 
-                        element={<SignUp handleSubmit={handleSubmit} updateMessage={updateMessage}/>}
+                        element={<SignUp />}
                     />
                 </Routes>
             </Router>
